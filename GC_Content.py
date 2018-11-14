@@ -23,3 +23,4 @@ dict[ID] = float((list[1]+list[2])/(list[0]+list[1]+list[2]+list[3]))
 
 dict1 = sorted(dict)
 print(dict1[0]+'\n'+str(dict[dict1[0]]))
+fasta.close()
