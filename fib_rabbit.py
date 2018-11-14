@@ -1,5 +1,5 @@
-n = int(input('请输入繁殖月数'))
-k = int(input())
+n = int(input('请输入繁殖月数:'))
+k = int(input('请输入繁殖比例:'))
 
 a,b = 0,1
 for i in range(1,n):
