@@ -1,6 +1,5 @@
 import sys
 fasta = open(sys.argv[1])
-#fasta = open('test.fasta')
 DNA_list = [line.strip().upper() for line in fasta.readlines()]
 
 i = 2
@@ -43,6 +42,7 @@ for i in range(len(profile_trans)):
         result += 'T'
 
 print(result)
+
 print('A: ' + str(profile[0])[1:].replace(']','').replace(',',''))
 print('C: ' + str(profile[1])[1:].replace(']','').replace(',',''))
 print('G: ' + str(profile[2])[1:].replace(']','').replace(',',''))
