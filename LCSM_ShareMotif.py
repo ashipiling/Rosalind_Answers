@@ -1,7 +1,7 @@
 import sys
 from collections import OrderedDict
-fasta = open(sys.argv[1])
-#fasta = open('test.fasta')
+#fasta = open(sys.argv[1])
+fasta = open('proteintest.fasta')
 DNA_list = [line.strip().upper() for line in fasta.readlines()]
 
 i = 2
