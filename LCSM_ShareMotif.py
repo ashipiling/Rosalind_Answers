@@ -2,8 +2,8 @@ import sys
 from collections import OrderedDict
 #fasta = open(sys.argv[1])
 fasta = open('proteintest.fasta')
-DNA_list = [line.strip().upper() for line in fasta.readlines()]
 
+DNA_list = [line.strip().upper() for line in fasta.readlines()]
 i = 2
 while i < len(DNA_list):
     if not DNA_list[i].startswith('>') and not DNA_list[i-1].startswith('>'):
