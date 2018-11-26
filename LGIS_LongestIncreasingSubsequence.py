@@ -13,11 +13,11 @@ def LIDS(array):
     list = [sorted(list1,key = lambda x : len(x),reverse=True)[0],sorted(list2,key = lambda x : len(x),reverse=True)[0]]
     return list
 
+if __name__ == '__main__':
+    # array = ['2','4','3','5','10','9','8','6','1','7']
+    n = input('输入数列长度n：')
+    array = input('输入不重复数字序列，两数字间用空格断开：').split(' ')
 
-#array = ['2','4','3','5','10','9','8','6','1','7']
-n = input('输入数列长度n：')
-array = input('输入不重复数字序列，两数字间用空格断开：').split(' ')
-
-result = LIDS(array)
-for i in result:
-    print(str(i)[1:-1].replace(',', '').replace("'",""))
+    result = LIDS(array)
+    for i in result:
+        print(str(i)[1:-1].replace(',', '').replace("'", ""))
