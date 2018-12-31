@@ -1,23 +1,52 @@
-def LIDS(array):
-    list1 = [[1] for i in range(len(array))]
-    list2 = [[1] for i in range(len(array))]
+def LIS(list):
+    n = len(list)
+    end = 1
+    length = 1
+    p = [0 for i in range(n)]
+    l = [1 for j in range(n)]
+    for i in range(n):
+        for j in range(0, i):
+            if int(list[j]) < int(list[i]):
+                if l[i] < l[j] + 1:
+                    l[i] = l[j] + 1
+                    p[i] = j
+        if max(l) == l[i]:
+            length = l[i]
+            end = i
+    result = [0 for i in range(length)]
+    add = length - 1
+    while add >= 0:
+        result[add] = list[end]
+        end = p[end]
+        add = add - 1
+    return result
 
-    for i in range(len(array) - 1):
-        list1[i] = [array[i]]
-        list2[i] = [array[i]]
-        for j in range(i + 1, len(array)):
-            if int(array[j]) > int(max(list1[i],key=lambda x:int(x))):
-                list1[i].append(array[j])
-            elif int(array[j]) < int(min(list2[i],key=lambda x:int(x))):
-                list2[i].append(array[j])
-    list = [sorted(list1,key = lambda x : len(x),reverse=True)[0],sorted(list2,key = lambda x : len(x),reverse=True)[0]]
-    return list
+def LDS(list):
+    n = len(list)
+    end = 1
+    length = 1
+    p = [0 for i in range(n)]
+    l = [1 for j in range(n)]
+    for i in range(n):
+        for j in range(0, i):
+            if int(list[j]) > int(list[i]):
+                if l[i] < l[j] + 1:
+                    l[i] = l[j] + 1
+                    p[i] = j
+        if max(l) == l[i]:
+            length = l[i]
+            end = i
+    result = [0 for i in range(length)]
+    add = length - 1
+    while add >= 0:
+        result[add] = list[end]
+        end = p[end]
+        add = add - 1
+    return result
 
 if __name__ == '__main__':
-    # array = ['2','4','3','5','10','9','8','6','1','7']
-    n = input('输入数列长度n：')
-    array = input('输入不重复数字序列，两数字间用空格断开：').split(' ')
-
-    result = LIDS(array)
-    for i in result:
-        print(str(i)[1:-1].replace(',', '').replace("'", ""))
+    array = ['2','4','3','5','10','9','8','6','1','7']
+    result_i = LIS(array)
+    print(str(result_i)[1:-1].replace(',','').replace("'",''))
+    result_d = LDS(array)
+    print(str(result_d)[1:-1].replace(',', '').replace("'", ''))
