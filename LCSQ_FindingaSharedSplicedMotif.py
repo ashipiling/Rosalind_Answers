@@ -2,16 +2,18 @@ from CONS_ConsensusProfile import fasta_to_list_without_name
 import sys
 
 def sort_DNA(dnalist,dict):
-    sort_list = [0 for i in range(len(dnalist[1]))]
+    sort_list = [0 for k in range(len(dnalist[1]))]
 
     for i in range(len(dnalist[0])):
+        n = 0
         for j in range(len(dnalist[1])):
-            n = 0
             if dnalist[0][i] == dnalist[1][j]:
-                n += 1
+                n = n+1
                 if n > dict[dnalist[0][i]]:
-                    sort_list[j] += max(sort_list) + 1
+                    sort_list[j] = max(sort_list) + 1
+
         dict[dnalist[0][i]] += 1
+
     return sort_list
 
 def LIS_loc(list):
@@ -41,9 +43,9 @@ def LIS_loc(list):
 
 
 if __name__ == '__main__':
-    #file = open('test.fasta')
+    file = open('test.fasta')
     dict = {'A': 0, 'C': 0, 'G': 0, 'T': 0}
-    file = sys.argv[1]
+    #file = sys.argv[1]
     DNAlist = fasta_to_list_without_name(file)
     final_seq = ''
     for i in LIS_loc(sort_DNA(DNAlist,dict)):
